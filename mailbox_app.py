@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restful import reqparse, Api, Resource, abort
-from backends import inmemory
+from backends import orm
 
-storage = inmemory
+storage = orm
 
 app = Flask(__name__)
 api = Api(app)
@@ -56,4 +56,5 @@ class MsgList(Resource):
 api.add_resource(MsgList, '/msgs')
 
 if __name__ == '__main__':
+    app.before_first_request(storage.init_storage)
     app.run(debug=True)

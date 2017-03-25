@@ -23,16 +23,10 @@ class Mailbox(object):
 
 
 USER_MAILBOXES = defaultdict(Mailbox)
-USER_MAILBOXES['martenbr@example.com'] = Mailbox([
-    {'id': 1, 'subject': 'Hello 1', 'content': 'First Message'},
-    {'id': 2, 'subject': 'Hello 2', 'content': 'Second Message'},
-])
 
-USER_MAILBOXES['test@example.com'] = Mailbox([
-    {'id': 1, 'subject': 'Hello', 'content': 'First Message'},
-    {'id': 2, 'subject': 'Hello', 'content': 'Second Message'},
-    {'id': 3, 'subject': 'Hello', 'content': 'Third Message'},
-])
+
+def init_storage():
+    pass
 
 
 def get_msgs(username, older_than=None, newer_than=None, limit=None):
